@@ -72,11 +72,12 @@ a.btn.btn-outline-light.ms-lg-3.btn-login:hover {
   }
 
 
-  h1.display-5.fw-bold.title-hero{
+  h1.display-5.fw-bold.title-hero {
     font-family: "Montserrat", sans-serif;
     color: #758FEB;
-
-  }
+    font-size: 55px;
+    padding-right: 11%;
+}
 
   .txt-dest{
     color: #2b2b2b;
@@ -145,7 +146,7 @@ h2.fw-bold.mb-3.title-banner-home {
     font-size: 36px;
 }
 
-p.mb-4.bajada-banner-home {
+p.mb-4 .bajada-banner-home {
     font-family: 'Montserrat';
     padding-top: 13px;
     padding-bottom: 10px;
@@ -153,4 +154,58 @@ p.mb-4.bajada-banner-home {
 
 span.text-banner-dest {
     color: #758FEB;
+}
+
+
+p.mb-4.bajada-service-home{
+    padding-top: 0px;
+
+}
+
+
+/*CARD-SERVICE-HOME*/
+
+h3.card-title.fw-bold.title-card-service {
+    font-family: 'Montserrat';
+    font-size: 18px;
+    padding: 14px 0px;
+}
+
+
+
+/*MEDIA MOB*/
+
+@media (max-width: 768px) {
+
+  .container.hero {
+    margin-top: 0%;
+    padding: 0% 4%;
+}
+  h1.display-5.fw-bold.title-hero {
+    font-family: "Montserrat", sans-serif;
+    color: #758FEB;
+    font-size: 36px;
+    padding-right: 11%;
+    text-align: left;
+}
+p.lead.mb-4.bajada-hero {
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.d-flex.flex-column.flex-md-row.gap-3.justify-content-center.justify-content-md-start {
+    width: 100%;
+    flex-flow: row !important;
+}
+
+.col-12.col-md-6.text-center.img-hero-h {
+    margin-top: 24px;
+}
+
+/*btn CTA HERO MOB*/
+a.btn.btn-outline-primary.btn-second.btn-lg {
+    margin-left: 0px;
+    padding: none;
+}
+
 }
