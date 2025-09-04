@@ -73,7 +73,7 @@ const services = [
         duration: "25 min",
         category: "consultation",
         animals: ["dog", "cat", "rabbit"],
-        image: "assets/img/2-serv.png"
+        image: "img/2-serv.png"
     },
     {
         id: "8",
@@ -83,7 +83,7 @@ const services = [
         duration: "35 min",
         category: "consultation",
         animals: ["dog", "cat", "rabbit"],
-        image: "assets/img/4-serv.png"
+        image: "img/4-serv.png"
     },
     {
         id: "9",

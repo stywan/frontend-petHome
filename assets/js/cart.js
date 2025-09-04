@@ -2,7 +2,6 @@
  * Cart module - Handles shopping cart functionality
  */
 
-
 // Global cart state
 let cart = [];
 
@@ -10,9 +9,14 @@ let cart = [];
  * Initialize cart event listeners
  */
 function initializeCart() {
-    const cartToggle = document.getElementById("cartToggle");
-    if (cartToggle) {
-        cartToggle.addEventListener("click", toggleCart);
+    const cartToggleMobile = document.getElementById("cartToggleMobile");
+    if (cartToggleMobile) {
+        cartToggleMobile.addEventListener("click", toggleCart);
+    }
+
+    const cartToggleDesktop = document.getElementById("cartToggleDesktop");
+    if (cartToggleDesktop) {
+        cartToggleDesktop.addEventListener("click", toggleCart);
     }
 }
 
@@ -62,6 +66,7 @@ function addServiceToCart(serviceId, appointmentDetails = {}) {
     showToast("Servicio agregado al carrito", "success");
     return true;
 }
+
 /**
  * Remove item from cart
  * @param {string} serviceId - Service ID
@@ -198,4 +203,69 @@ function validateCart() {
         isValid: errors.length === 0,
         errors
     };
+}
+
+/**
+ * Update cart UI
+ */
+function updateCartUI() {
+    const { totalItems, totalPrice } = getCartTotals();
+
+    // 🔵 Actualizar contador en mobile
+    const cartCountMobile = document.getElementById("cartCountMobile");
+    if (cartCountMobile) {
+        cartCountMobile.textContent = totalItems;
+        cartCountMobile.style.display = totalItems > 0 ? "inline-flex" : "none";
+    }
+
+    // 🔵 Actualizar contador en desktop
+    const cartCountDesktop = document.getElementById("cartCountDesktop");
+    if (cartCountDesktop) {
+        cartCountDesktop.textContent = totalItems;
+        cartCountDesktop.style.display = totalItems > 0 ? "inline-flex" : "none";
+    }
+
+    // 🔵 Actualizar lista de servicios en el carrito
+    const cartItemsContainer = document.getElementById("cartItems");
+    if (cartItemsContainer) {
+        cartItemsContainer.innerHTML = "";
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = `
+              <li class="list-group-item text-center text-muted">
+                El carrito está vacío
+              </li>`;
+        } else {
+            cart.forEach(item => {
+                const li = document.createElement("li");
+                li.className = "list-group-item d-flex justify-content-between align-items-start";
+
+                li.innerHTML = `
+                    <div>
+                        <div class="fw-bold">${item.name}</div>
+                        <small>${formatVeterinarianName(item.veterinarian)} - ${item.date} ${item.time}</small>
+                        <br>
+                        <small>Cantidad: ${item.quantity}</small>
+                    </div>
+                    <div>
+                        <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                        <button class="btn btn-sm btn-outline-danger ms-2">X</button>
+                    </div>
+                `;
+
+                // Evento eliminar
+                li.querySelector("button").addEventListener("click", () => {
+                    removeFromCart(item.id, item.veterinarian, item.date, item.time);
+                });
+
+                cartItemsContainer.appendChild(li);
+            });
+        }
+    }
+
+    // 🔵 Actualizar total del carrito
+    const cartTotal = document.getElementById("cartTotal");
+    if (cartTotal) {
+        cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
+    }
 }
