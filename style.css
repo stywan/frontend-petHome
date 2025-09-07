@@ -316,3 +316,172 @@ h2.text-primary {
     background-color: #758feb;
     border-color: #758feb;
 }
+
+/* ===== CARRITO (OFFCANVAS) ===== */
+#cartOffcanvas {
+  width: 400px; 
+  font-family: "Montserrat", sans-serif;
+  color: #2b2b2b;
+  border-left: 1px solid #e5e7eb;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.08);
+}
+
+/* header */
+#cartOffcanvas .offcanvas-header {
+  border-bottom: none;
+  padding: 1rem 1.25rem;
+}
+
+#cartOffcanvas .offcanvas-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#cartOffcanvas .btn-close {
+  filter: brightness(0) invert(1); 
+}
+
+/* cuerpo */
+#cartOffcanvas .offcanvas-body {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+
+/* items */
+#cartItems .cart-item {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 0.75rem 0;
+}
+
+#cartItems .cart-item:last-child {
+  border-bottom: none;
+}
+
+/* textos */
+#cartItems h6 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+#cartItems p {
+  font-size: 13px;
+  margin-bottom: 0.25rem;
+}
+
+/* imagenes de item */
+#cartItems img {
+  border-radius: 10px;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+/* controles de cantidad */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.quantity-btn {
+  background-color: #f1f5f9;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.quantity-btn:hover {
+  background-color: #e2e8f0;
+}
+
+.quantity-input {
+  width: 45px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+/* precios */
+#cartItems strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2b2b2b;
+}
+
+/* footer */
+#cartFooter {
+  margin-top: auto;
+}
+
+#cartFooter strong {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2b2b2b;
+}
+
+#cartFooter hr {
+  margin: 1rem 0;
+}
+
+/* botones footer */
+#cartFooter .btn {
+  border-radius: 100px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+#cartFooter .btn-outline-danger {
+  border-radius: 100px;
+  font-weight: 500;
+  border: 1px solid #dc3545;
+  color: #dc3545;
+  background-color: #fff;
+  transition: all 0.2s ease;
+}
+
+#cartFooter .btn-outline-danger:hover {
+  background-color: #ffe0e0;
+  transform: translateY(-2px);
+}
+
+/* ===== MODAL DETALLE DE SERVICIO ===== */
+#serviceDetailModal .modal-content {
+  border-radius: 20px; 
+  overflow: hidden; 
+  border: none; 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
+}
+
+#serviceDetailModal .modal-header {
+  border-bottom: none; 
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+#serviceDetailModal .modal-footer {
+  border-top: none;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+/* inputs y selects */
+#serviceDetailModal .form-control,
+#serviceDetailModal .form-select,
+#serviceDetailModal textarea {
+  border-radius: 8px; 
+  font-size: 14px;
+}
+
+/* título */
+#serviceDetailModal h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2b2b2b;
+}

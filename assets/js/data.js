@@ -9,7 +9,7 @@ const services = [
         id: "1",
         name: "Consulta Veterinaria General",
         description: "Examen completo de salud, diagnóstico y recomendaciones para tu mascota en la comodidad de tu hogar.",
-        price: 80.000,
+        price: 80000,
         duration: "45 min",
         category: "consultation",
         animals: ["dog", "cat", "rabbit"],
@@ -19,7 +19,7 @@ const services = [
         id: "2",
         name: "Vacunación Completa",
         description: "Aplicación de vacunas esenciales según el calendario de vacunación de tu mascota.",
-        price: 120,
+        price: 120000,
         duration: "30 min",
         category: "vaccination",
         animals: ["dog", "cat"],
@@ -29,7 +29,7 @@ const services = [
         id: "3",
         name: "Peluquería y Aseo",
         description: "Baño, corte de pelo, limpieza de oídos y corte de uñas para mantener a tu mascota limpia y saludable.",
-        price: 60,
+        price: 60000,
         duration: "60 min",
         category: "grooming",
         animals: ["dog", "cat", "rabbit"],
@@ -39,7 +39,7 @@ const services = [
         id: "4",
         name: "Atención de Emergencia",
         description: "Servicio de urgencia veterinaria disponible 24/7 para situaciones críticas de tu mascota.",
-        price: 200,
+        price: 200000,
         duration: "60 min",
         category: "emergency",
         animals: ["dog", "cat", "bird", "rabbit", "other"],
@@ -49,7 +49,7 @@ const services = [
         id: "5",
         name: "Cirugía Menor",
         description: "Procedimientos quirúrgicos menores como extracción de tumores pequeños, suturas y curaciones.",
-        price: 300,
+        price: 200000,
         duration: "90 min",
         category: "surgery",
         animals: ["dog", "cat"],
@@ -59,7 +59,7 @@ const services = [
         id: "6",
         name: "Consulta para Aves",
         description: "Examen especializado para aves domésticas, incluyendo revisión de plumaje, pico y comportamiento.",
-        price: 90,
+        price: 90000,
         duration: "40 min",
         category: "consultation",
         animals: ["bird"],
@@ -69,7 +69,7 @@ const services = [
         id: "7",
         name: "Desparasitación",
         description: "Tratamiento completo contra parásitos internos y externos, incluyendo medicación preventiva.",
-        price: 50,
+        price: 50000,
         duration: "25 min",
         category: "consultation",
         animals: ["dog", "cat", "rabbit"],
@@ -79,7 +79,7 @@ const services = [
         id: "8",
         name: "Control de Peso y Nutrición",
         description: "Evaluación nutricional y plan de alimentación personalizado para mantener el peso ideal de tu mascota.",
-        price: 70,
+        price: 70000,
         duration: "35 min",
         category: "consultation",
         animals: ["dog", "cat", "rabbit"],
@@ -89,7 +89,7 @@ const services = [
         id: "9",
         name: "Limpieza Dental",
         description: "Limpieza profesional de dientes y encías para prevenir enfermedades periodontales.",
-        price: 150,
+        price: 150000,
         duration: "50 min",
         category: "grooming",
         animals: ["dog", "cat"],
@@ -99,7 +99,7 @@ const services = [
         id: "10",
         name: "Microchip de Identificación",
         description: "Implantación de microchip para identificación permanente y seguridad de tu mascota.",
-        price: 40,
+        price: 40000,
         duration: "15 min",
         category: "consultation",
         animals: ["dog", "cat", "rabbit"],
@@ -109,7 +109,7 @@ const services = [
         id: "11",
         name: "Eutanasia Humanitaria",
         description: "Servicio compasivo para mascotas en estado terminal, realizado con dignidad en su hogar.",
-        price: 250,
+        price: 200000,
         duration: "60 min",
         category: "emergency",
         animals: ["dog", "cat", "bird", "rabbit", "other"],
@@ -119,7 +119,7 @@ const services = [
         id: "12",
         name: "Terapia de Rehabilitación",
         description: "Fisioterapia y ejercicios de rehabilitación para mascotas en recuperación post-operatoria.",
-        price: 100,
+        price: 100000,
         duration: "45 min",
         category: "consultation",
         animals: ["dog", "cat"],
@@ -163,8 +163,6 @@ const timeSlots = [
 
 /**
  * Get service by ID
- * @param {string} serviceId - The service ID
- * @returns {Object|undefined} Service object or undefined if not found
  */
 function getServiceById(serviceId) {
     return services.find(service => service.id === serviceId);
@@ -172,7 +170,6 @@ function getServiceById(serviceId) {
 
 /**
  * Get all services
- * @returns {Array} Array of all services
  */
 function getAllServices() {
     return [...services];
@@ -180,8 +177,6 @@ function getAllServices() {
 
 /**
  * Get services by category
- * @param {string} category - The category to filter by
- * @returns {Array} Array of services in the specified category
  */
 function getServicesByCategory(category) {
     return services.filter(service => service.category === category);
@@ -189,8 +184,6 @@ function getServicesByCategory(category) {
 
 /**
  * Get services by animal type
- * @param {string} animal - The animal type to filter by
- * @returns {Array} Array of services for the specified animal type
  */
 function getServicesByAnimal(animal) {
     return services.filter(service => service.animals.includes(animal));

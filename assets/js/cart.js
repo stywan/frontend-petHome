@@ -30,9 +30,19 @@ function addServiceToCart(serviceId, appointmentDetails = {}) {
 
     const { veterinarian, date, time, notes } = appointmentDetails;
 
-    // 🔴 Validación: todos los campos obligatorios
-    if (!veterinarian || !date || !time) {
-        showToast("Por favor completa veterinario, fecha y hora", "error");
+    // Validación mejorada para mensajes específicos
+    if (!veterinarian) {
+        showToast("Por favor selecciona un veterinario", "error");
+        return false;
+    }
+
+    if (!date) {
+        showToast("Por favor selecciona una fecha", "error");
+        return false;
+    }
+
+    if (!time) {
+        showToast("Por favor selecciona una hora", "error");
         return false;
     }
 

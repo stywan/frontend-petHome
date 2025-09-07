@@ -3,6 +3,19 @@
  */
 
 /**
+ * Función para formatear el precio como pesos chilenos
+ * @param {number} price - El precio a formatear
+ * @returns {string} El precio formateado
+ */
+function formatPrice(price) {
+    return new Intl.NumberFormat('es-CL', {
+        style: 'currency',
+        currency: 'CLP',
+        minimumFractionDigits: 0
+    }).format(price);
+}
+
+/**
  * Render services in the grid
  */
 function renderServices() {
@@ -48,7 +61,7 @@ function createServiceCard(service) {
                 <div class="card-body d-flex flex-column">
                     <div class="d-flex justify-content-between align-items-start mb-2">
                         <h5 class="card-title text-primary">${service.name}</h5>
-                        <span class="badge price-badge">$${service.price}</span>
+                        <span class="badge price-badge">${formatPrice(service.price)}</span>
                     </div>
                     
                     <p class="card-text text-muted small flex-grow-1">${service.description}</p>
@@ -117,7 +130,7 @@ function updateCartUI() {
 
     // Update total price
     if (cartTotal) {
-        cartTotal.textContent = totalPrice;
+        cartTotal.textContent = formatPrice(totalPrice);
     }
 }
 
@@ -148,7 +161,7 @@ function createCartItemHTML(item) {
                      style="width: 60px; height: 60px; object-fit: cover;">
                 <div class="flex-grow-1">
                     <h6 class="mb-1">${item.name}</h6>
-                    <p class="text-muted small mb-1">$${item.price} × ${item.duration}</p>
+                    <p class="text-muted small mb-1">${formatPrice(item.price)}</p>
                     ${veterinarianDisplay}
                     ${appointmentDisplay}
                     
@@ -168,7 +181,7 @@ function createCartItemHTML(item) {
                         </div>
                         
                         <div class="d-flex align-items-center gap-2">
-                            <strong>$${item.price * item.quantity}</strong>
+                            <strong>${formatPrice(item.price * item.quantity)}</strong>
                             <button class="btn btn-sm btn-outline-danger" 
                                     onclick="removeFromCart('${item.id}', '${item.veterinarian}', '${item.date}', '${item.time}')">
                                 <i class="fas fa-trash"></i>
@@ -246,7 +259,7 @@ function populateServiceModal(service) {
             .map(animal => animalTranslations[animal])
             .join(", ");
     }
-    if (elements.price) elements.price.textContent = service.price;
+    if (elements.price) elements.price.textContent = formatPrice(service.price);
     if (elements.duration) elements.duration.textContent = service.duration;
 }
 
